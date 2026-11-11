@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="footer-brand">
             <span className="footer-logo">{personalInfo.name}</span>
             <p className="footer-bio">
-              WordPress & PHP Developer | 3+ Years Building Scalable Web & Plugin Architecture
+              {personalInfo.role}
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="footer-meta">
             <span>Crafted with React & Vite</span>
             <span className="footer-meta-dot">•</span>
-            <span>Kozhikode, India</span>
+            <span>{personalInfo.location}</span>
           </div>
         </div>
       </div>

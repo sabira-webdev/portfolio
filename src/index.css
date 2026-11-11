@@ -1,52 +1,46 @@
 /* ==========================================================================
    DESIGN TOKENS & BASE STYLES
+   Dark theme: near-black with a single magenta accent.
    ========================================================================== */
 
 :root {
-  /* Color Palette */
-  --bg-primary: #070a14;
-  --bg-secondary: #0d1222;
-  --bg-card: rgba(18, 24, 43, 0.7);
-  --bg-card-hover: rgba(28, 38, 68, 0.85);
-  --bg-subtle: rgba(13, 18, 34, 0.8);
-  
-  /* Accent Colors */
-  --accent-gold: #f59e0b;
-  --accent-gold-light: #fbbf24;
-  --accent-gold-glow: rgba(245, 158, 11, 0.25);
-  --accent-cyan: #06b6d4;
-  --accent-cyan-glow: rgba(6, 182, 212, 0.25);
-  --accent-emerald: #10b981;
-  --accent-purple: #8b5cf6;
+  /* Surfaces: black with a hint of plum (matches the photo backdrop) */
+  --bg: #07040a;
+  --bg-alt: #0c070f;
+  --surface: #130b14;
+  --surface-2: #1d111d;
+  --surface-muted: #180e19;
+  --nav-bg: rgba(7, 4, 10, 0.85);
 
-  /* Text Colors */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  /* Text */
+  --text: #f7f3f6;
+  --text-2: #b3a5b0;
+  --text-3: #8d7d8a;
 
-  /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(255, 255, 255, 0.1);
-  --border-hover: rgba(245, 158, 11, 0.35);
+  /* Accent: magenta */
+  --accent: #e0157a;
+  --accent-hover: #f0479a;
+  --accent-light: #f9a8d4;
+  --accent-soft: rgba(224, 21, 122, 0.12);
+  --accent-border: rgba(224, 21, 122, 0.38);
+  --on-accent: #ffffff;
 
-  /* Shadows */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.15);
+  /* Lines */
+  --border: #2a1a28;
+  --border-strong: #42293e;
 
-  /* Typography */
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.7);
+  --glow: 0 0 60px rgba(224, 21, 122, 0.35);
+
+  --radius: 16px;
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* Transitions */
-  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --nav-height: 72px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base Reset */
 *,
 *::before,
 *::after {
@@ -62,40 +56,70 @@ html {
 
 body {
   font-family: var(--font-main);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Selection */
-::selection {
-  background: rgba(245, 158, 11, 0.3);
-  color: #fff;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* Custom Scrollbar */
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #2a2a2a;
   border-radius: 5px;
-  border: 2px solid var(--bg-primary);
+  border: 2px solid var(--bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-gold);
+  background: var(--accent);
 }
 
-/* Smooth anchor offsets */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 section {
-  scroll-margin-top: 85px;
+  scroll-margin-top: var(--nav-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

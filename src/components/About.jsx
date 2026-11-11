@@ -23,7 +23,7 @@ export default function About() {
     {
       icon: <Sparkles className="pillar-icon" size={22} />,
       title: "AI-Augmented Velocity",
-      desc: "Pioneering AI-assisted development tools (Antigravity, ChatGPT) for code generation, comprehensive test debugging, and documentation."
+      desc: "Using AI-assisted tools (Claude, ChatGPT, Gemini, Cursor, Antigravity) for faster debugging, refactoring, and documentation."
     },
     {
       icon: <ShieldCheck className="pillar-icon" size={22} />,
@@ -51,31 +51,31 @@ export default function About() {
           <div className="about-bio-card">
             <h3 className="about-card-title">Professional Summary</h3>
             <p className="about-bio-text">
-              I am a <strong>WordPress & PHP Developer with 3+ years of experience</strong> building and maintaining production-grade WordPress and WooCommerce plugins using PHP, JavaScript, React.js, and MySQL.
+              I am a <strong>Web Developer with nearly 4 years of experience</strong> building, maintaining, and supporting commercial WordPress and WooCommerce plugins using PHP, JavaScript, React.js, and MySQL.
             </p>
             <p className="about-bio-text">
-              Currently working at <strong>Acodez IT Solutions</strong>, I specialize in architecting custom plugin features, resolving compatibility challenges during major WooCommerce core updates, and engineering REST API integrations.
+              Currently working at <strong>Acodez IT Solutions</strong>, I develop and maintain 3 commercial WooCommerce plugins (checkout fields, email customization, and PDF invoices & packing slips), ship regular releases aligned with WooCommerce Marketplace guidelines, and support a live user base through the WordPress support forum.
             </p>
             <p className="about-bio-text">
-              I actively incorporate <strong>AI-assisted development tools</strong> into my workflow to accelerate delivery times while upholding strict code quality, security protocols, and performance benchmarks.
+              Outside work I build React apps such as a <strong>Food Safety Management System</strong> on Supabase and an <strong>Order Kanban Board</strong> for WooCommerce. I am based in <strong>Dubai, UAE</strong>.
             </p>
 
             <div className="about-quick-facts">
               <div className="fact-item">
                 <CheckCircle2 size={18} className="fact-icon" />
-                <span>Production experience with high-volume WooCommerce stores</span>
+                <span>3 commercial WooCommerce plugins in active development</span>
               </div>
               <div className="fact-item">
                 <CheckCircle2 size={18} className="fact-icon" />
-                <span>Expert in action hooks, filter hooks, and WP REST API</span>
+                <span>WordPress Hooks, Filters, CPTs & REST API</span>
               </div>
               <div className="fact-item">
                 <CheckCircle2 size={18} className="fact-icon" />
-                <span>Modern React.js admin interface development</span>
+                <span>React.js, Vite, Tailwind CSS & Supabase</span>
               </div>
               <div className="fact-item">
                 <CheckCircle2 size={18} className="fact-icon" />
-                <span>Bachelor of Technology (B.Tech) in Engineering</span>
+                <span>B.Tech, University of Calicut</span>
               </div>
             </div>
 

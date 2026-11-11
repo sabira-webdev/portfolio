@@ -7,7 +7,8 @@ import {
   Copy, 
   Check, 
   Sparkles,
-  MessageSquare
+  MessageSquare,
+  Phone
 } from "lucide-react";
 import { LinkedInIcon, GitHubIcon } from "./Icons";
 
@@ -105,6 +106,27 @@ export default function Contact({ onShowToast }) {
                   <span className="channel-label">Location</span>
                   <span className="channel-value text-muted">{personalInfo.location}</span>
                 </div>
+              </div>
+
+              {/* Phone */}
+              <div className="channel-item">
+                <div className="channel-icon-box">
+                  <Phone size={20} />
+                </div>
+                <div className="channel-info">
+                  <span className="channel-label">Phone / WhatsApp</span>
+                  <a href={`tel:${personalInfo.phone.replace(/\s/g, "")}`} className="channel-value">
+                    {personalInfo.phone}
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  className="btn-copy"
+                  onClick={() => handleCopy(personalInfo.phone, "Phone")}
+                  title="Copy phone number to clipboard"
+                >
+                  {copiedField === "Phone" ? <Check size={16} className="text-success" /> : <Copy size={16} />}
+                </button>
               </div>
             </div>
 

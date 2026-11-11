@@ -5,7 +5,8 @@ import {
   Layers, 
   Cpu, 
   ShieldCheck, 
-  CheckCircle, 
+  Monitor, 
+  Database, 
   Sparkles 
 } from "lucide-react";
 
@@ -22,6 +23,10 @@ export default function Skills() {
         return <Cpu size={20} />;
       case "ShieldCheck":
         return <ShieldCheck size={20} />;
+      case "Monitor":
+        return <Monitor size={20} />;
+      case "Database":
+        return <Database size={20} />;
       default:
         return <Sparkles size={20} />;
     }
@@ -84,7 +89,6 @@ export default function Skills() {
                         {skill.level}
                       </span>
                     </div>
-                    <p className="skill-desc">{skill.desc}</p>
                   </div>
                 ))}
               </div>
@@ -100,7 +104,7 @@ export default function Skills() {
           <div className="ai-card-content">
             <h4 className="ai-card-title">AI-Augmented Engineering Practice</h4>
             <p className="ai-card-desc">
-              Leveraging advanced agentic coding tools like <strong>Antigravity</strong> and <strong>ChatGPT</strong> to dramatically speed up debugging, refactoring, boilerplate generation, and comprehensive unit/integration test coverage without compromising production security standards.
+              I use <strong>Claude</strong>, <strong>ChatGPT</strong>, <strong>Gemini</strong>, <strong>Cursor</strong>, and <strong>Antigravity</strong> to speed up debugging, refactoring, and documentation, while reviewing every change to keep production code secure and maintainable.
             </p>
           </div>
         </div>

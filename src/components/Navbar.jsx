@@ -58,6 +58,9 @@ export default function Navbar() {
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // On a project page the section isn't rendered: go back home to it
+      window.location.hash = href;
     }
   };
 
@@ -71,7 +74,7 @@ export default function Navbar() {
           </div>
           <div className="logo-text-group">
             <span className="logo-name">{personalInfo.name}</span>
-            <span className="logo-title">WordPress & PHP Dev</span>
+            <span className="logo-title">{personalInfo.shortRole}</span>
           </div>
         </a>
 
@@ -125,7 +128,7 @@ export default function Navbar() {
         <div className="mobile-drawer-content">
           <div className="mobile-status-pill">
             <span className="live-status-dot" />
-            <span>Available for new projects</span>
+            <span>{personalInfo.status}</span>
           </div>
 
           <ul className="mobile-nav-list">

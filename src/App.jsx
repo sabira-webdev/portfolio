@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
@@ -8,12 +8,47 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
+import ProjectDetail from "./components/ProjectDetail";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
+// Hash routing keeps project pages working on GitHub Pages: #/projects/<id>
+const PROJECT_ROUTE = /^#\/projects\/([\w-]+)$/;
+
+function getProjectSlug() {
+  const match = window.location.hash.match(PROJECT_ROUTE);
+  return match ? match[1] : null;
+}
+
 function App() {
   const [toastMessage, setToastMessage] = useState(null);
+  const [projectSlug, setProjectSlug] = useState(getProjectSlug);
+  const previousSlug = useRef(projectSlug);
+
+  useEffect(() => {
+    // A link like .../#contact opened fresh: jump once the section has rendered
+    const sectionId = window.location.hash.slice(1);
+    if (sectionId && !PROJECT_ROUTE.test(window.location.hash)) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "instant" });
+    }
+
+    const onHashChange = () => setProjectSlug(getProjectSlug());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  // Scroll to the right place after switching between the home page and a project page
+  useEffect(() => {
+    if (projectSlug) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    } else if (previousSlug.current) {
+      const sectionId = window.location.hash.slice(1);
+      const target = (sectionId && document.getElementById(sectionId)) || document.getElementById("projects");
+      target?.scrollIntoView({ behavior: "instant" });
+    }
+    previousSlug.current = projectSlug;
+  }, [projectSlug]);
 
   const showToast = (msg) => {
     setToastMessage(msg);
@@ -24,14 +59,6 @@ function App() {
 
   return (
     <div className="app-root">
-      {/* Dynamic Background Mesh */}
-      <div className="bg-canvas-mesh">
-        <div className="mesh-gradient-orb orb-1" />
-        <div className="mesh-gradient-orb orb-2" />
-        <div className="mesh-gradient-orb orb-3" />
-      </div>
-
-      {/* Floating Toast Notification */}
       {toastMessage && (
         <div className="app-toast">
           <span className="toast-dot" />
@@ -39,22 +66,25 @@ function App() {
         </div>
       )}
 
-      {/* Navigation */}
       <Navbar />
 
-      {/* Main Sections */}
       <main className="main-content">
-        <Hero />
-        <Stats />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <Contact onShowToast={showToast} />
+        {projectSlug ? (
+          <ProjectDetail slug={projectSlug} />
+        ) : (
+          <>
+            <Hero />
+            <Stats />
+            <About />
+            <Skills />
+            <Experience />
+            <Projects />
+            <Education />
+            <Contact onShowToast={showToast} />
+          </>
+        )}
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

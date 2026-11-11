@@ -1,6 +1,6 @@
 import React from "react";
-import { educationData } from "../data/portfolioData";
-import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
+import { educationData, languagesData } from "../data/portfolioData";
+import { GraduationCap, Calendar, MapPin, Languages } from "lucide-react";
 
 export default function Education() {
   return (
@@ -48,6 +48,14 @@ export default function Education() {
               </div>
             </div>
           ))}
+
+          <div className="edu-languages">
+            <Languages size={18} className="edu-languages-icon" />
+            <span className="edu-languages-label">Languages:</span>
+            {languagesData.map((lang) => (
+              <span key={lang} className="edu-meta-badge">{lang}</span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
