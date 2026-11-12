@@ -1,42 +1,44 @@
 /* ==========================================================================
    DESIGN TOKENS & BASE STYLES
-   Dark theme: near-black with a single magenta accent.
+   Dark developer theme: near-black, faint grid, soft indigo accent.
    ========================================================================== */
 
 :root {
-  /* Surfaces: black with a hint of plum (matches the photo backdrop) */
-  --bg: #07040a;
-  --bg-alt: #0c070f;
-  --surface: #130b14;
-  --surface-2: #1d111d;
-  --surface-muted: #180e19;
-  --nav-bg: rgba(7, 4, 10, 0.85);
+  /* Surfaces: near-black, not pure black */
+  --bg: #0b0b0d;
+  --bg-alt: #0e0e11;
+  --surface: #111114;
+  --surface-2: #17171b;
+  --surface-muted: #131317;
+  --nav-bg: rgba(11, 11, 13, 0.82);
+  --grid-line: #141418;
 
   /* Text */
-  --text: #f7f3f6;
-  --text-2: #b3a5b0;
-  --text-3: #8d7d8a;
+  --text: #ededef;
+  --text-2: #a1a1aa;
+  --text-3: #8b8b94;
 
-  /* Accent: magenta */
-  --accent: #e0157a;
-  --accent-hover: #f0479a;
-  --accent-light: #f9a8d4;
-  --accent-soft: rgba(224, 21, 122, 0.12);
-  --accent-border: rgba(224, 21, 122, 0.38);
-  --on-accent: #ffffff;
+  /* Accent: soft indigo, used sparingly */
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-light: #a5b4fc;
+  --accent-soft: rgba(129, 140, 248, 0.12);
+  --accent-border: rgba(129, 140, 248, 0.35);
+  --on-accent: #0b0b0d;
 
   /* Lines */
-  --border: #2a1a28;
-  --border-strong: #42293e;
+  --border: #1f1f24;
+  --border-strong: #2c2c33;
 
   /* Elevation */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.7);
-  --glow: 0 0 60px rgba(224, 21, 122, 0.35);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+  --glow: 0 0 0 0 transparent;
 
-  --radius: 16px;
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius: 12px;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --nav-height: 72px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -56,9 +58,13 @@ html {
 
 body {
   font-family: var(--font-main);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
   color: var(--text);
-  line-height: 1.75;
+  line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -80,8 +86,8 @@ textarea {
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--accent-soft);
+  color: var(--text);
 }
 
 ::-webkit-scrollbar {
@@ -93,7 +99,7 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #2c2c33;
   border-radius: 5px;
   border: 2px solid var(--bg);
 }

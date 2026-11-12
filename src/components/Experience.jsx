@@ -15,12 +15,12 @@ export default function Experience() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <span className="section-badge">CAREER JOURNEY</span>
+          <span className="section-badge">experience</span>
           <h2 className="section-title">
             Professional <span className="gradient-text">Experience</span>
           </h2>
           <p className="section-subtitle">
-            My track record of engineering production plugins, client systems, and scalable web solutions.
+            Where I work today and what I do there, day to day.
           </p>
         </div>
 

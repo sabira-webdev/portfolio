@@ -52,7 +52,8 @@ export default function ProjectDetail({ slug }) {
     alt: `${project.title}: ${shot.caption}`,
     caption: shot.caption,
     url: liveHost || project.frameLabel,
-    secure: Boolean(liveHost)
+    secure: Boolean(liveHost),
+    plain: Boolean(shot.plain)
   });
 
   return (
@@ -132,6 +133,19 @@ export default function ProjectDetail({ slug }) {
               <TextSection heading="Overview" paragraphs={project.overview} />
             )}
 
+            {project.palette && (
+              <div className="detail-palette">
+                {project.palette.map((color) => (
+                  <div key={color.hex} className="palette-swatch">
+                    <span className="palette-chip" style={{ background: color.hex }} />
+                    <span className="palette-name">{color.name}</span>
+                    <span className="palette-hex">{color.hex}</span>
+                    <span className="palette-use">{color.use}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {project.features && (
               <section className="detail-section">
                 <h2 className="detail-heading">Key features</h2>
@@ -151,7 +165,7 @@ export default function ProjectDetail({ slug }) {
 
             {project.modules && (
               <section className="detail-section">
-                <h2 className="detail-heading">Key features &amp; modules</h2>
+                <h2 className="detail-heading">{project.modulesTitle || "Key features & modules"}</h2>
                 <div className="detail-modules">
                   {project.modules.map((module, i) => (
                     <div key={module.title} className="detail-module">
@@ -167,6 +181,40 @@ export default function ProjectDetail({ slug }) {
                           <li key={item}>{item}</li>
                         ))}
                       </ul>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {project.technical && (
+              <section className="detail-section">
+                <h2 className="detail-heading">{project.technicalTitle || "Technical highlights"}</h2>
+                <div className="detail-technical">
+                  {project.technical.map((item) => (
+                    <div key={item.title} className="detail-technical-item">
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {project.challenges && (
+              <section className="detail-section">
+                <h2 className="detail-heading">Challenges &amp; solutions</h2>
+                <div className="detail-challenges">
+                  {project.challenges.map((item) => (
+                    <div key={item.problem} className="challenge-row">
+                      <div>
+                        <span className="challenge-label">Challenge</span>
+                        <p>{item.problem}</p>
+                      </div>
+                      <div>
+                        <span className="challenge-label is-solution">Solution</span>
+                        <p>{item.solution}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -189,22 +237,22 @@ export default function ProjectDetail({ slug }) {
               </section>
             )}
 
-            {project.technical && (
-              <section className="detail-section">
-                <h2 className="detail-heading">Technical highlights</h2>
-                <div className="detail-technical">
-                  {project.technical.map((item) => (
-                    <div key={item.title} className="detail-technical-item">
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
             {project.learnings && (
               <TextSection heading={project.learnings.heading} paragraphs={project.learnings.paragraphs} />
+            )}
+
+            {project.nextSteps && (
+              <section className="detail-section">
+                <h2 className="detail-heading">Next steps</h2>
+                <ul className="detail-features">
+                  {project.nextSteps.map((item) => (
+                    <li key={item}>
+                      <ArrowRight size={18} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             )}
 
             {project.myRole && (

@@ -1,7 +1,7 @@
 import React from "react";
-import { Puzzle, ClipboardCheck, KanbanSquare, Wrench, Layers } from "lucide-react";
+import { Puzzle, ClipboardCheck, KanbanSquare, Wrench, Globe, Layers } from "lucide-react";
 
-const ICONS = { Puzzle, ClipboardCheck, KanbanSquare, Wrench };
+const ICONS = { Puzzle, ClipboardCheck, KanbanSquare, Wrench, Globe };
 
 // Shows the project screenshot, or a themed placeholder with the project icon
 // until a screenshot is added in portfolioData.js.

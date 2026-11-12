@@ -3,13 +3,11 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Stats from "./components/Stats";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import ProjectDetail from "./components/ProjectDetail";
-import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -74,12 +72,10 @@ function App() {
         ) : (
           <>
             <Hero />
-            <Stats />
             <About />
             <Skills />
             <Experience />
             <Projects />
-            <Education />
             <Contact onShowToast={showToast} />
           </>
         )}

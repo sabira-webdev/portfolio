@@ -4,25 +4,22 @@ import devtoolsJson from "../assets/projects/devtools-hub-json.webp";
 import kanbanBoard from "../assets/projects/order-kanban-board.webp";
 import kanbanSettings from "../assets/projects/order-kanban-settings.webp";
 import fsmsConcept from "../assets/projects/fsms-dashboard-concept.webp";
+import lumoraShowcase from "../assets/projects/lumora-showcase.webp";
+import lumoraPages from "../assets/projects/lumora-pages.webp";
+import lumoraResponsive from "../assets/projects/lumora-responsive.webp";
 
 export const personalInfo = {
   name: "Sabira K",
   role: "Web Developer | WordPress, WooCommerce & React.js",
   shortRole: "Web Developer",
   bio: "Web Developer with nearly 4 years of experience building, maintaining, and supporting commercial WordPress and WooCommerce plugins. Proficient in PHP, JavaScript (ES6+), React.js, and MySQL, with hands-on expertise in custom plugin development, WordPress Hooks and Filters, REST API integration, performance optimization, and secure coding practices.",
-  experienceLabel: "Nearly 4 Years",
+  experienceLabel: "Nearly 4 years",
   location: "Dubai, UAE",
   phone: "+971 56 937 1669",
   email: "sabira.k.dev@gmail.com",
   linkedin: "https://www.linkedin.com/in/sabira-k",
   github: "https://github.com/24sab",
-  status: "Open to new opportunities",
-  stats: [
-    { label: "Years of experience", value: "~4", suffix: "" },
-    { label: "Commercial WooCommerce plugins", value: "3", suffix: "" },
-    { label: "Personal projects shipped", value: "3", suffix: "" },
-    { label: "Technologies in daily use", value: "15+", suffix: "" }
-  ]
+  status: "Open to new opportunities"
 };
 
 export const skillsData = [
@@ -360,6 +357,143 @@ export const projectsData = [
     ],
     github: "https://github.com/sabira-webdev/devtools-hub",
     live: "https://devtools-hubdev.netlify.app/"
+  },
+  {
+    id: "lumora-digital",
+    title: "Lumora Digital",
+    subtitle: "Business website for a concept digital agency",
+    category: "WordPress Website",
+    period: "2026",
+    status: "Concept project",
+    role: "Brand design, web design, WordPress development, content",
+    summary: "A responsive 6-page business website for a concept agency, with brand identity, illustrations, a contact form, blog, and SEO, built with Astra and Elementor.",
+    story: [
+      {
+        heading: "Overview",
+        paragraphs: [
+          "Lumora Digital is a complete, responsive business website for a concept digital agency that helps small businesses shine online. I created the brand from scratch, designed every page, and built the site in WordPress using the Astra theme and Elementor's Flexbox containers, with a working contact form, a blog, and on-page SEO.",
+          "Lumora Digital is a fictional brand created for this portfolio project; it is not a real company."
+        ]
+      },
+      {
+        heading: "The goal",
+        paragraphs: [
+          "Most small businesses need a website that looks professional, explains what they do in seconds, and makes it easy for customers to get in touch. The goal was to build that kind of site: a strong first impression with a clear call to action, simple pages that explain the services, story, and values, an easy way to get in touch from every page, a layout that works as well on a phone as on a desktop, and a blog to support SEO.",
+          "I also used this project to strengthen my front-end and site-building skills, so I can deliver complete websites, not just custom functionality."
+        ]
+      },
+      {
+        heading: "Brand & design system",
+        paragraphs: [
+          "\"Lumora\" comes from lumen, meaning light, which led to the tagline \"Ideas that shine online\". The logo is a teal rounded square with a white \"L\" and a small glowing orange dot, a simple mark that works as both a logo and a browser icon.",
+          "A calm teal builds trust, while warm orange is reserved for buttons so every call to action stands out. Poppins is used for headings and body text, and custom flat illustrations in the brand colors replace stock photos for a consistent visual style."
+        ]
+      }
+    ],
+    palette: [
+      { name: "Primary", hex: "#0F766E", use: "Logo, numbers, CTA section" },
+      { name: "Accent", hex: "#F59E0B", use: "All buttons" },
+      { name: "Light background", hex: "#F0FDFA", use: "Hero, banners, cards" },
+      { name: "Text", hex: "#1F2937", use: "Headings and body text" }
+    ],
+    modulesTitle: "Pages & features",
+    modules: [
+      {
+        title: "Home",
+        items: [
+          "Two-column hero with headline, \"Get Started\" button, and illustration",
+          "Stats strip, three service cards, and a call-to-action section"
+        ]
+      },
+      {
+        title: "About",
+        items: [
+          "Full-width banner and an \"Our Story\" section beside an illustration",
+          "Three value cards: Simple, Honest, Reliable"
+        ]
+      },
+      {
+        title: "Services",
+        items: [
+          "A section for each service: Web Design, Branding, Digital Marketing",
+          "Images alternate left and right to keep the page easy to scan"
+        ]
+      },
+      {
+        title: "Blog",
+        items: [
+          "Three-column post grid with featured images and categories",
+          "Three original articles on websites, brand colors, and SEO"
+        ]
+      },
+      {
+        title: "Contact",
+        items: [
+          "Contact details beside a styled WPForms contact form",
+          "Submit button matched to the brand with custom CSS"
+        ]
+      },
+      {
+        title: "Across the site",
+        items: [
+          "Header and three-column footer built with the Astra Header & Footer Builder",
+          "Layouts tuned separately for desktop, tablet, and mobile",
+          "Rank Math SEO: titles, meta descriptions, and image alt text",
+          "Site icon, Privacy Policy page, and a consistent menu"
+        ]
+      }
+    ],
+    technicalTitle: "Process",
+    technical: [
+      { title: "1. Plan", text: "Listed the pages and the sections each one needed, starting with the homepage as the most important page." },
+      { title: "2. Brand", text: "Chose the name, tagline, colors, and font, then set them globally in Astra so the whole site stayed consistent." },
+      { title: "3. Build", text: "Created the header and footer in Astra, then built each page in Elementor with nested Flexbox containers (section → row → cards), using the Structure panel to keep the layout organized." },
+      { title: "4. Reuse", text: "Copied proven sections (banner, story, cards, call to action) between pages instead of rebuilding them, which kept spacing and styling consistent." },
+      { title: "5. Make it responsive", text: "Reviewed every page in mobile view and adjusted direction, width, padding, and alignment per device, so columns stack cleanly and text stays readable." },
+      { title: "6. Content & SEO", text: "Wrote the page copy and three blog posts, set categories and featured images, and added SEO titles, meta descriptions, and alt text with Rank Math." },
+      { title: "7. Polish & test", text: "Added the logo and site icon, a Privacy Policy, clickable contact links, and a final check of every link, button, and the contact form on all screen sizes." }
+    ],
+    challenges: [
+      { problem: "Widgets dropped on the page landed in the wrong container, breaking layouts.", solution: "Used Elementor's Structure panel to name every container (Hero, Row, Card) and move elements precisely." },
+      { problem: "Card rows that looked right on desktop shrank to a narrow column on phones.", solution: "Overrode alignment, width, and padding at the mobile breakpoint (stretch alignment, 100% width)." },
+      { problem: "A two-column section overflowed when one side was set to grow.", solution: "Gave each side a fixed share of the width (55% text, 40% image) so it always fits." },
+      { problem: "White gaps appeared around full-width banners.", solution: "Traced it to padding on the outer container and moved the spacing to the inner box." },
+      { problem: "Changing the local site domain caused a redirect loop.", solution: "Found a capital letter and a missing .local suffix in the domain, and reset it to a lowercase .local address." },
+      { problem: "The form button didn't match the brand.", solution: "Added a small custom CSS rule to style the WPForms submit button in brand orange." }
+    ],
+    highlightsTitle: "What this project shows",
+    highlights: [
+      "Building a complete WordPress site from an empty install to a finished, branded website",
+      "Confident use of Astra and Elementor's Flexbox containers, including responsive overrides",
+      "Design judgment: hierarchy, spacing, color use, and consistency across pages",
+      "Content and SEO basics that real clients expect",
+      "Debugging layout and environment issues methodically"
+    ],
+    nextSteps: [
+      "Custom plugin \"Lumora Core\": custom post types for projects and testimonials, a custom Elementor widget, and an AJAX contact form saving to a custom table",
+      "Global styles: move repeated colors and button styles into Elementor Globals and Classes",
+      "Go live: deploy to hosting with SSL, SMTP email delivery, and automatic backups"
+    ],
+    techStack: [
+      { label: "Platform", value: "WordPress" },
+      { label: "Theme", value: "Astra" },
+      { label: "Page builder", value: "Elementor (Flexbox containers)" },
+      { label: "Forms", value: "WPForms" },
+      { label: "SEO", value: "Rank Math" },
+      { label: "Local development", value: "Local" },
+      { label: "Pages", value: "Home, About, Services, Blog, Contact, Privacy Policy" }
+    ],
+    tags: ["WordPress", "Elementor", "Astra", "Rank Math", "WPForms"],
+    icon: "Globe",
+    image: lumoraShowcase,
+    // These images already include their own device frames, so they're shown unframed
+    gallery: [
+      { src: lumoraShowcase, caption: "Home page on desktop and mobile", plain: true },
+      { src: lumoraPages, caption: "Home, About, and Contact pages", plain: true },
+      { src: lumoraResponsive, caption: "Responsive layouts on mobile", plain: true }
+    ],
+    github: null,
+    live: null
   },
   {
     id: "wc-commercial-plugins",

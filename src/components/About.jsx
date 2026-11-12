@@ -1,103 +1,116 @@
 import React from "react";
-import { 
-  Puzzle, 
-  Terminal, 
-  Sparkles, 
-  ShieldCheck, 
-  CheckCircle2, 
-  ArrowUpRight 
-} from "lucide-react";
+import { personalInfo, educationData } from "../data/portfolioData";
+import profileImg from "../assets/sabira-k.webp";
+import { Globe, Puzzle, LayoutDashboard, Wrench, ArrowRight, Download } from "lucide-react";
+
+const services = [
+  {
+    icon: Globe,
+    title: "Websites",
+    desc: "Responsive business websites in WordPress and Elementor, SEO-ready and easy for clients to update."
+  },
+  {
+    icon: Puzzle,
+    title: "Plugins",
+    desc: "Custom WordPress and WooCommerce plugins built on hooks, filters, custom post types, and the REST API."
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Web apps",
+    desc: "React applications and dashboards, backed by Supabase or the WordPress REST API."
+  },
+  {
+    icon: Wrench,
+    title: "Developer tools",
+    desc: "Browser-based utilities, such as formatters and code generators, that speed up everyday work."
+  }
+];
 
 export default function About() {
-  const pillars = [
-    {
-      icon: <Puzzle className="pillar-icon" size={22} />,
-      title: "Extensible Plugin Architecture",
-      desc: "Deep mastery of WordPress hooks, filters, custom post types, custom taxonomies, and REST endpoints for maintainable and scalable plugins."
-    },
-    {
-      icon: <Terminal className="pillar-icon" size={22} />,
-      title: "Full-Stack & React UI",
-      desc: "Combining robust PHP and MySQL backend logic with modern React.js frontend interfaces to deliver snappy, intuitive admin dashboards."
-    },
-    {
-      icon: <Sparkles className="pillar-icon" size={22} />,
-      title: "AI-Augmented Velocity",
-      desc: "Using AI-assisted tools (Claude, ChatGPT, Gemini, Cursor, Antigravity) for faster debugging, refactoring, and documentation."
-    },
-    {
-      icon: <ShieldCheck className="pillar-icon" size={22} />,
-      title: "Security & Optimization",
-      desc: "Strict adherence to nonces, data sanitization, transient caching, and database query optimization across major core updates."
-    }
+  const degree = educationData[0];
+
+  const facts = [
+    { label: "Experience", value: personalInfo.experienceLabel, sub: "Professional web development" },
+    { label: "What I build", value: "Websites, plugins & web apps", sub: "WordPress, WooCommerce, React" },
+    { label: "Core stack", value: "PHP, JavaScript, React.js", sub: "MySQL, Supabase, REST APIs" },
+    { label: "Education", value: "B.Tech", sub: `University of Calicut, ${degree.period.slice(-4)}` }
   ];
 
   return (
     <section className="section-wrapper" id="about">
       <div className="section-container">
-        {/* Section Header */}
         <div className="section-header">
-          <span className="section-badge">ABOUT ME</span>
+          <span className="section-badge">about</span>
           <h2 className="section-title">
-            Engineering Scalable Web & <span className="gradient-text">Plugin Solutions</span>
+            Building for the web, <span className="gradient-text">end to end.</span>
           </h2>
-          <p className="section-subtitle">
-            Bridging complex backend business logic with high-performance user experiences.
-          </p>
         </div>
 
-        <div className="about-grid">
-          {/* Left bio column */}
-          <div className="about-bio-card">
-            <h3 className="about-card-title">Professional Summary</h3>
-            <p className="about-bio-text">
-              I am a <strong>Web Developer with nearly 4 years of experience</strong> building, maintaining, and supporting commercial WordPress and WooCommerce plugins using PHP, JavaScript, React.js, and MySQL.
+        <div className="about-layout">
+          <aside className="about-profile">
+            <div className="about-photo">
+              <img src={profileImg} alt={`Portrait of ${personalInfo.name}`} width="900" height="900" loading="lazy" />
+            </div>
+            <div className="about-identity">
+              <span className="about-name">{personalInfo.name}</span>
+              <span className="about-role">{personalInfo.shortRole}</span>
+              <span className="about-available">
+                <span className="live-pulse" />
+                {personalInfo.status}
+              </span>
+            </div>
+          </aside>
+
+          <div className="about-intro">
+            <p className="about-text">
+              I'm a Web Developer with {personalInfo.experienceLabel.toLowerCase()} of experience building for the
+              web. I work across WordPress and modern JavaScript: business websites, custom plugins, React
+              applications, and small tools that make everyday work easier.
             </p>
-            <p className="about-bio-text">
-              Currently working at <strong>Acodez IT Solutions</strong>, I develop and maintain 3 commercial WooCommerce plugins (checkout fields, email customization, and PDF invoices & packing slips), ship regular releases aligned with WooCommerce Marketplace guidelines, and support a live user base through the WordPress support forum.
-            </p>
-            <p className="about-bio-text">
-              Outside work I build React apps such as a <strong>Food Safety Management System</strong> on Supabase and an <strong>Order Kanban Board</strong> for WooCommerce. I am based in <strong>Dubai, UAE</strong>.
+            <p className="about-text">
+              I care about the details that make a project last: clean, readable code, security best practices,
+              good performance, and layouts that work on every screen. I enjoy turning requirements into something
+              simple to use, and I keep learning new tools so I can build better and faster.
             </p>
 
-            <div className="about-quick-facts">
-              <div className="fact-item">
-                <CheckCircle2 size={18} className="fact-icon" />
-                <span>3 commercial WooCommerce plugins in active development</span>
-              </div>
-              <div className="fact-item">
-                <CheckCircle2 size={18} className="fact-icon" />
-                <span>WordPress Hooks, Filters, CPTs & REST API</span>
-              </div>
-              <div className="fact-item">
-                <CheckCircle2 size={18} className="fact-icon" />
-                <span>React.js, Vite, Tailwind CSS & Supabase</span>
-              </div>
-              <div className="fact-item">
-                <CheckCircle2 size={18} className="fact-icon" />
-                <span>B.Tech, University of Calicut</span>
-              </div>
-            </div>
+            <dl className="about-facts">
+              {facts.map((fact) => (
+                <div key={fact.label} className="about-fact">
+                  <dt>{fact.label}</dt>
+                  <dd>
+                    <span className="about-fact-value">{fact.value}</span>
+                    <span className="about-fact-sub">{fact.sub}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
 
             <div className="about-actions">
-              <a href="#experience" className="btn-secondary">
-                <span>View Career Timeline</span>
-                <ArrowUpRight size={16} />
+              <a href="#projects" className="btn-primary">
+                <span>View my work</span>
+                <ArrowRight size={16} />
+              </a>
+              <a href={`${import.meta.env.BASE_URL}Sabira-K-CV.pdf`} download="Sabira-K-CV.pdf" className="btn-secondary">
+                <Download size={16} />
+                <span>Download CV</span>
               </a>
             </div>
           </div>
+        </div>
 
-          {/* Right pillars column */}
-          <div className="about-pillars-grid">
-            {pillars.map((pillar) => (
-              <div key={pillar.title} className="pillar-card">
-                <div className="pillar-icon-box">
-                  {pillar.icon}
+        <div className="about-services">
+          <h3 className="about-services-title">What I do</h3>
+          <div className="about-services-grid">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <div key={service.title} className="about-service">
+                  <Icon size={20} className="about-service-icon" />
+                  <h4 className="about-service-name">{service.title}</h4>
+                  <p className="about-service-desc">{service.desc}</p>
                 </div>
-                <h4 className="pillar-title">{pillar.title}</h4>
-                <p className="pillar-desc">{pillar.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { personalInfo } from "../data/portfolioData";
-import { 
-  Menu, 
-  X, 
-  Sparkles, 
-  FileDown, 
-  Send 
-} from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" }
+];
+
+const cvUrl = `${import.meta.env.BASE_URL}Sabira-K-CV.pdf`;
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,42 +17,21 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 40);
 
-      // Track active section for nav highlighting
-      const sections = ["home", "about", "skills", "experience", "projects", "education", "contact"];
+      // Highlight the nav link for the section in view
       const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
+      let current = "home";
+      for (const { href } of navLinks) {
+        const el = document.getElementById(href.slice(1));
+        if (el && scrollPosition >= el.offsetTop) current = href.slice(1);
       }
+      setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Education", href: "#education" },
-    { label: "Contact", href: "#contact" }
-  ];
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
@@ -67,98 +48,61 @@ export default function Navbar() {
   return (
     <header className={`navbar-header ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
-        {/* Brand Logo */}
         <a href="#home" className="brand-logo" onClick={(e) => handleNavClick(e, "#home")}>
-          <div className="logo-badge">
-            <span className="logo-initials">SK</span>
-          </div>
-          <div className="logo-text-group">
-            <span className="logo-name">{personalInfo.name}</span>
-            <span className="logo-title">{personalInfo.shortRole}</span>
-          </div>
+          sabira.k<span className="brand-caret">_</span>
         </a>
 
-        {/* Desktop Nav Links */}
-        <nav className="desktop-nav">
+        <nav className="desktop-nav" aria-label="Main">
           <ul className="nav-list">
-            {navLinks.map((item) => {
-              const id = item.href.substring(1);
-              const isActive = activeSection === id;
-              return (
-                <li key={item.label} className="nav-item">
-                  <a
-                    href={item.href}
-                    className={`nav-link ${isActive ? "active" : ""}`}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                  >
-                    {item.label}
-                    {isActive && <span className="active-dot" />}
-                  </a>
-                </li>
-              );
-            })}
+            {navLinks.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className={`nav-link ${activeSection === item.href.slice(1) ? "active" : ""}`}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
-        {/* Action Button CTA */}
         <div className="nav-actions">
-          <a
-            href="#contact"
-            className="btn-nav-cta"
-            onClick={(e) => handleNavClick(e, "#contact")}
-          >
-            <span>Let's Talk</span>
-            <Send size={15} />
+          <a href={cvUrl} download="Sabira-K-CV.pdf" className="btn-nav-cta">
+            <span>Resume</span>
+            <ArrowUpRight size={15} />
           </a>
-
-          {/* Mobile Menu Button */}
           <button
             type="button"
             className="mobile-toggle-btn"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
       <div className={`mobile-nav-drawer ${menuOpen ? "open" : ""}`}>
         <div className="mobile-drawer-content">
-          <div className="mobile-status-pill">
-            <span className="live-status-dot" />
-            <span>{personalInfo.status}</span>
-          </div>
-
           <ul className="mobile-nav-list">
-            {navLinks.map((item) => {
-              const id = item.href.substring(1);
-              const isActive = activeSection === id;
-              return (
-                <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className={`mobile-nav-link ${isActive ? "active" : ""}`}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                  >
-                    <span>{item.label}</span>
-                    {isActive && <Sparkles size={16} className="sparkle-icon" />}
-                  </a>
-                </li>
-              );
-            })}
+            {navLinks.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className={`mobile-nav-link ${activeSection === item.href.slice(1) ? "active" : ""}`}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
-
-          <div className="mobile-drawer-footer">
-            <a
-              href="#contact"
-              className="btn-primary full-width"
-              onClick={(e) => handleNavClick(e, "#contact")}
-            >
-              Get in Touch
-            </a>
-          </div>
+          <a href={cvUrl} download="Sabira-K-CV.pdf" className="btn-primary full-width">
+            Download resume
+          </a>
         </div>
       </div>
     </header>

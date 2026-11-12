@@ -58,12 +58,12 @@ export default function Contact({ onShowToast }) {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <span className="section-badge">GET IN TOUCH</span>
+          <span className="section-badge">contact</span>
           <h2 className="section-title">
-            Let's Build Something <span className="gradient-text">Exceptional</span>
+            Let's work <span className="gradient-text">together.</span>
           </h2>
           <p className="section-subtitle">
-            Whether you have a custom WordPress plugin requirement, a WooCommerce scaling project, or a full-time opportunity — I'd love to connect.
+            I'm open to full-time roles in Dubai and to WordPress and WooCommerce projects. Send a message and I'll get back to you.
           </p>
         </div>
 
