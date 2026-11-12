@@ -18,7 +18,7 @@ export const personalInfo = {
   phone: "+971 56 937 1669",
   email: "sabira.k.dev@gmail.com",
   linkedin: "https://www.linkedin.com/in/sabira-k",
-  github: "https://github.com/24sab",
+  github: "https://github.com/sabira-webdev",
   status: "Open to new opportunities"
 };
 
@@ -195,7 +195,7 @@ export const projectsData = [
     gallery: [
       { src: fsmsConcept, caption: "Dashboard design concept. Screenshots of the working app are coming soon." }
     ],
-    github: "https://github.com/24sab",
+    github: "https://github.com/sabira-webdev",
     live: null
   },
   {
@@ -265,7 +265,7 @@ export const projectsData = [
       { src: kanbanBoard, caption: "The order board: every status is a column, every order a card" },
       { src: kanbanSettings, caption: "Board settings: choose, reorder, and add status columns" }
     ],
-    github: "https://github.com/24sab",
+    github: "https://github.com/sabira-webdev",
     live: null
   },
   {
